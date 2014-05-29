@@ -1,0 +1,13 @@
+<table ng-controller="HeaderController" id="header">
+    <tr>
+        <td class="back">
+            <a ng-click="goBack()"><i class="icon-left-open"></i></a> <!-- ng-if="BACK_BUTTON"-->
+        </td>
+        <td class="title" ng-bind-html="PAGE_TITLE"></td>
+        <td class="menu">
+            <a ng-click="openMenu()"><i class="icon-menu"></i></a>
+        </td>
+    </tr>
+</table>
+
+<div id="header-push"></div>

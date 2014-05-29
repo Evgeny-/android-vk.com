@@ -1,0 +1,7 @@
+<div ng-controller="AlbumController" id="album" class="page">
+    <div class="image"
+         ng-repeat="image in images"
+         ng-click="openPhoto(image.id)"
+         ng-style="{'background-image': 'url('+image.image_small+')'}">
+    </div>
+</div>

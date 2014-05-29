@@ -1,0 +1,64 @@
+#header {
+   width: 100%;
+   position: fixed;
+   background: @headerBackground;
+   color: @headerColor;
+   height: @headerHeight;
+   border-bottom: @headerBorder;
+   text-align: center;
+   top: 0;
+   left: 0;
+   right: 0;
+   z-index: 4;
+   box-shadow: @headerBoxShadow;
+
+   .menu {
+      width: @headerHeight;
+
+      a {
+         border-left: 1px solid fade(@mainBorderColor, 50%);
+
+         i:before {
+            content: @headerIconMenu;
+         }
+      }
+   }
+
+   .title {
+      font-size: @headerFontSize;
+      font-weight: 100;
+   }
+
+   .back {
+      width: @headerHeight;
+
+      a {
+         border-right: 1px solid fade(@mainBorderColor, 50%);
+
+         i:before {
+            content: @headerIconBack;
+         }
+      }
+   }
+
+   .menu, .back {
+
+      a {
+         padding: 3pt 0;
+         width: 100%;
+         display: block;
+      }
+
+      i {
+         font-size: @mainFontSize + 8pt;
+      }
+
+      &:active {
+         background: rgba(0,0,0,.1);
+      }
+   }
+}
+
+#header-push {
+   height: @headerHeight;
+}

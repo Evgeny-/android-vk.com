@@ -1,0 +1,9 @@
+<div ng-controller="AlbumsController" id="albums" class="page">
+    <div class="album" ng-repeat="album in albums" ng-click="$go.go('/albums/'+album.id)">
+        <div ng-style="{'background-image': 'url('+album.image+')'}" class="img"></div>
+        <div class="meta">
+            <div class="title" ng-bind="album.title"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>

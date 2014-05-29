@@ -1,0 +1,29 @@
+#settings {
+   .settings-grid {
+      width: 95%;
+      margin: 10pt auto;
+      border-collapse: collapse;
+
+      td {
+         padding: 8pt 4pt 5pt;
+         vertical-align: middle;
+      }
+
+      tr {
+         border-top: 1px solid fade(@mainBorderColor, 70%);
+
+         &:first-of-type {
+            border-top: 0;
+         }
+      }
+
+      .label {
+         width: 80%;
+      }
+
+      .control {
+         width: 20%;
+         text-align: right;
+      }
+   }
+}

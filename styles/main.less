@@ -1,0 +1,37 @@
+body {
+   margin: 0;
+   background: @bodyBackground;
+   background-size: cover;
+   background-position: center;
+   color: @bodyColor;
+   font-size: @bodyFontSize;
+   font-family: @bodyFontFamily;
+}
+
+
+* {
+   -webkit-touch-callout: none;
+   -webkit-user-select: none;
+   -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+#view {
+   position: relative;
+}
+
+table {
+   border-collapse: collapse;
+}
+
+.clear {
+   clear: both;
+   &:after {
+      content: "";
+      display: table;
+      clear: both;
+   }
+}
+
+.icon-loader:before {
+   content: @loaderIcon;
+}

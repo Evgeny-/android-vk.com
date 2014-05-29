@@ -1,0 +1,104 @@
+#menu {
+   .group-info {
+      margin: 10pt 0;
+      width: 100%;
+
+      td {
+         padding: 0 5pt;
+         text-align: center;
+      }
+
+      .avatar {
+         width: 36pt;
+         padding: 0 0 0 10pt;
+
+         img {
+            border: 3pt solid @mainBorderColor;
+            height: 30pt;
+            border-radius: @postBorderRadius;
+            background: #fff;
+         }
+      }
+
+      .name {
+         padding: 0 10pt 0 5pt;
+         font-size: @menuTitleFontSize;
+         color: @menuColor;
+      }
+   }
+
+   ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+         border-top: 1px solid @menuLineColor;
+
+         &:first-of-type {
+            border-top: 0;
+         }
+
+         a {
+            display: block;
+            padding: 7pt 14pt;
+            color: @menuColor;
+
+            span {
+               float: right;
+               background: @menuLabelBackground;
+               color: @menuLabelColor;
+               padding: 0 3px;
+               vertical-align: middle;
+               display: inline-block;
+               border-radius: 2pt;
+               font-size: @mainFontSize - 3pt;
+               line-height: @mainFontSize;
+            }
+
+            &:before {
+               content: @menuIconRight;
+               float: right;
+               .icon();
+            }
+
+            &:active {
+               background: rgba(0,0,0,.1);
+            }
+         }
+      }
+   }
+}
+
+#menu-overlay {
+   position: fixed;
+   left: 0;
+   top: 0;
+   bottom: 0;
+   display: none;
+   z-index: 5;
+}
+
+.opened-menu #menu-overlay {
+   display: block;
+   background: @menuOverlay;
+   height: 100%;
+   width: 100%;
+}
+
+#menu-wrap {
+   background: @menuBackground;
+   background-size: cover;
+   position: fixed;
+   left: 0;
+   top: 0;
+   bottom: 0;
+   margin-left: -@menuWidth;
+   width: @menuWidth;
+   z-index: 10;
+   .transition3d(100ms, 0%);
+}
+
+.opened-menu #menu-wrap {
+   .transition3d(100ms, 100%);
+}

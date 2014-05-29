@@ -1,0 +1,42 @@
+#albums {
+   .album {
+      margin: 6pt 5pt 3pt;
+      padding: 0;
+      background:@mainLightBackground;
+      border: @postBorder;
+      border-radius: @postBorderRadius;
+      overflow: hidden;
+      box-shadow: @postBoxShadow;
+
+      .img {
+         float: left;
+         width: 40%;
+         margin-right: 5pt;
+         height: 60pt;
+         background-repeat: no-repeat;
+         background-size: cover;
+         background-position: center;
+         max-width: 120pt;
+      }
+
+      .meta {
+         padding: 5pt 5pt 0 0;
+         font-size: 11pt;
+         line-height: 13pt;
+      }
+
+      &:active {
+         opacity: 0.8;
+      }
+
+      @media all and (min-width: 400pt) {
+         width: 47%;
+         float: left;
+      }
+
+      @media all and (min-width: 600pt) {
+         width: 31%;
+         float: left;
+      }
+   }
+}

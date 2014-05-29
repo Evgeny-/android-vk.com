@@ -1,0 +1,68 @@
+.icon () {
+   font-family: "fontello";
+   font-style: normal;
+   font-weight: normal;
+   display: inline-block;
+   width: 1em;
+   margin-right: .2em;
+   text-align: center;
+   line-height: 1em;
+   margin-left: .2em;
+}
+
+.transition3d (@long:300ms, @x:0, @y:0, @z:0) {
+   -webkit-transform: translate3d(@x, @y, @z);
+   -moz-transform: translate3d(@x, @y, @z);
+   transform: translate3d(@x, @y, @z);
+   -webkit-transition: -webkit-transform @long linear;
+   -moz-transition: -moz-transform @long linear;
+   transition: transform @long linear;
+}
+
+
+
+
+
+/* ==========================================================================
+Created by Ilya Pestov - @ilya_pestov
+========================================================================== */
+
+.shade(@type, @color: #3498db, @depth: 7, @angle: 136deg, @long: true, @fade: false) {
+   @ang: (@angle - 90deg);
+   @x: 1.5px * cos(@ang);
+   @y: 1.5px * sin(@ang);
+
+   .shade(@type, @color, @depth, @x, @y, @long, @fade, (lightness(@color)/@depth)/2, (alpha(@color)/@depth));
+}
+
+.shade(@type, @color, @depth, @x, @y, @long, @fade, @darken, @opacify) when (@long = true) {
+   .shade(@type, @color, @depth, @x, @y, @fade, 0, @opacify);
+}
+.shade(@type, @color, @depth, @x, @y, @long, @fade, @darken, @opacify) when (@long = false) {
+   .shade(@type, @color, @depth, @x, @y, @fade, @darken, @opacify);
+}
+
+
+.shade(@type, @color, @depth, @x, @y, @long, @darken, @opacify) when (@fade = true) {
+   .shade(@type, @color, @depth, @x, @y, @darken, @opacify);
+}
+.shade(@type, @color, @depth, @x, @y, @long, @darken, @opacify) when (@fade = false) {
+   .shade(@type, @color, @depth, @x, @y, @darken, 0);
+}
+
+.shade(@type, @color, @depth, @x, @y, @darken, @opacify) {
+   @hue: hue(@color);
+   @sat: saturation(@color);
+   @lightness: lightness(@color);
+   .shade-recursive(@type, 1, @depth, @x, @y, @darken, @opacify, @hue, @sat, @lightness);
+}
+
+.shade-recursive(@type, @i, @depth, @x, @y, @darken, @opacify, @hue, @sat, @lightness) when (@i < @depth) and (@type = text) {
+   text-shadow+: (@i * @x) (@i * @y) 0 hsla(@hue, @sat, (@lightness - (@i * @darken)), (1 - (@i * @opacify)));
+   .shade-recursive(@type, @i + 1, @depth, @x, @y, @darken, @opacify, @hue, @sat, @lightness);
+}
+
+.shade-recursive(@type, @i, @depth, @x, @y, @darken, @opacify, @hue, @sat, @lightness) when (@i < @depth) and (@type = box) {
+   box-shadow+: (@i * @x) (@i * @y) 0 hsla(@hue, @sat, (@lightness - (@i * @darken)), (1 - (@i * @opacify)));
+   .shade-recursive(@type, @i + 1, @depth, @x, @y, @darken, @opacify, @hue, @sat, @lightness);
+}

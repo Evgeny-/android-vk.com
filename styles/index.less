@@ -1,0 +1,84 @@
+body.index {
+   background: @indexBackground;
+}
+
+#main {
+   text-align: center;
+   height: 100%;
+
+   img {
+      margin-top: 7%;
+      width: 100pt;
+      border-radius: @postBorderRadius;
+   }
+
+   h2 {
+      text-align: center;
+      font-weight: 100;
+      margin: 6% 0 0;
+      color: @indexColor;
+      font-size: @mainFontSize + 8pt;
+   }
+
+   small {
+      color: fade(@indexColor, 80%);
+      font-size: @mainFontSize - 2pt;
+   }
+
+   .controls {
+      margin: 12% auto 0;
+      overflow: hidden;
+      border-radius: @postBorderRadius;
+
+      td {
+         text-align: center;
+         font-size: @mainFontSize - 2pt;
+         padding: 8pt 14pt;
+         color: @indexMenuColor;
+
+         div {
+            height: 100%;
+            width: 100%;
+            position: relative;
+         }
+
+         i {
+            font-size: 24pt;
+            line-height: 1.4em;
+            display: inline;
+            color: @indexIconColor;
+
+            &.icon--posts:before {content: @postsIcon;}
+            &.icon--fav:before {content: @favIcon;}
+            &.icon--photos:before {content: @photosIcon;}
+            &.icon--settings:before {content: @settingsIcon;}
+         }
+
+         span {
+            position: absolute;
+            left: 30pt;
+            top: -2pt;
+            background: @menuLabelBackground;
+            color: @menuLabelColor;
+            box-shadow: 1px 1px 0 rgba(0,0,0,.2);
+            padding: 0 3px;
+            vertical-align: middle;
+            display: inline-block;
+            border-radius: 2pt;
+            font-size: @mainFontSize - 2pt;
+            line-height: @mainFontSize + 1pt;
+         }
+
+         &:active {
+            background: rgba(0,0,0,.05);
+         }
+      }
+
+      @border: @indexBorderColor;
+
+      .tl { border-bottom: 1px solid @border; }
+      .tr { border-left: 1px solid @border; }
+      .br { border-top: 1px solid @border; }
+      .bl { border-right: 1px solid @border; }
+   }
+}

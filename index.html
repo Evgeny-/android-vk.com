@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app="App">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>App</title>
+    <link rel="stylesheet" href="build/build.css"/>
+</head>
+<body ng-class="{'opened-menu': openedMenu}"
+      class="{{ PAGE_NAME }}"
+      ng-swipe-left="hideMenu()"
+      ng-swipe-right="showMenu()">
+
+<div id="menu-wrap" ng-include="CONST.MENU"></div>
+<div id="menu-overlay" ng-click="hideMenu()"></div>
+
+<div id="view-wrap">
+    <div ng-include="CONST.HEADER" ng-show="SHOW_HEADER"></div>
+    <div id="view" ng-view></div>
+    <div ng-include="CONST.PHOTOS_VIEW"></div>
+</div>
+
+<script src="build/build.js"></script>
+</body>
+</html>

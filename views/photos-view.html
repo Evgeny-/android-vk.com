@@ -1,0 +1,28 @@
+<div ng-controller="PhotosViewController" id="photos-view" class="page" ng-show="images">
+    <div ng-if="images">
+        <table class="header">
+            <tr>
+                <td class="title">Просмотр изображений</td>
+                <td class="close">
+                    <a ng-click="closePhotos()"><i class="icon-cancel-1"></i></a>
+                </td>
+            </tr>
+        </table>
+
+        <div class="header-push"></div>
+
+        <div class="title-count">
+            Изображение <i ng-if="loading" class="icon-loader animate-spin"></i>
+            <span ng-if="!loading" ng-bind="id+1"></span> из {{images.length}}
+        </div>
+
+        <div class="image-container">
+            <div class="prev" ng-click="prevPhoto()" ng-if="images.length>1"></div>
+            <i class="icon-left-open-big icon-prev" ng-if="images.length>1"></i>
+            <img ng-src="{{images[id].image_big}}" ng-onload="loaded()">
+            <div class="next" ng-click="nextPhoto()" ng-if="images.length>1"></div>
+            <i class="icon-right-open-big icon-next" ng-if="images.length>1"></i>
+        </div>
+        <div class="description" ng-bind="images[id].desc"></div>
+    </div>
+</div>

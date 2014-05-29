@@ -1,0 +1,37 @@
+#album {
+   text-align: center;
+   font-size: 0;
+   padding: 4pt 3pt;
+
+   .image {
+      height: 70pt;
+      width: 31%;
+      display: inline-block;
+      margin: 1% 0.9%;
+      border-radius: @postBorderRadius;
+      overflow: hidden;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #fff;
+
+      &:active {
+         opacity: 0.8;
+      }
+
+      @media all and (min-width: 300pt) {
+         height: 85pt;
+      }
+
+      @media all and (min-width: 400pt) {
+         width: 23%;
+         height: 95pt;
+      }
+
+      @media all and (min-width: 600pt) {
+         width: 18%;
+         height: 110pt;
+      }
+   }
+}

@@ -1,0 +1,38 @@
+#loader {
+
+   span {
+      height: @loaderHeight;
+      display: block;
+      background: @loaderBackground;
+      color: @loaderColor;
+      border-radius: @loaderBorderRadius;
+      border: @loaderBorder;
+      text-align: center;
+      left: 5pt;
+      right: 5pt;
+      line-height: @loaderHeight;
+      vertical-align: middle;
+   }
+
+   &.top {
+      span {
+         top: @headerHeight + 5pt;
+         position: absolute;
+      }
+   }
+
+   &.middle {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: @mainDarkBackground;
+
+      span {
+         top: 50%;
+         margin-top: - (@loaderHeight / 2);
+         position: fixed;
+      }
+   }
+}
