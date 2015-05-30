@@ -1,0 +1,24 @@
+<div id="menu" ng-controller="MenuController">
+   <table class="group-info">
+      <tr>
+         <td class="avatar"><img ng-src="{{ info.image }}"></td>
+         <td class="name">{{ info.name }}</td>
+      </tr>
+   </table>
+
+   <ul>
+      <li>
+         <a ng-click="openPage('/posts')" ng-class="{new: new.posts}">
+            Новости <span ng-if="new.posts" ng-bind="new.posts"></span>
+         </a>
+      </li>
+      <li><a ng-click="openPage('/saved')">Избранное</a></li>
+      <li>
+         <a ng-click="openMail('oldlentach@gmail.com')" ng-class="{new: new.photos}">
+            Связь
+         </a>
+      </li>
+      <li><a ng-click="openPage('/settings')">Настройки</a></li>
+   </ul>
+
+</div>

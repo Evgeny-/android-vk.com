@@ -1,0 +1,35 @@
+<div id="main" class="page" ng-controller="MainController">
+   <img ng-src="{{ info.image }}">
+   <h2 ng-bind="info.name"></h2>
+   <small ng-bind="info.status" ng-if="info.status"></small>
+
+   <table class="controls">
+      <tr>
+         <td class="tl" ng-click="$go.go('/posts')">
+            <div>
+               <i class="icon--posts"></i><br>Новости
+               <span ng-if="count.posts" ng-bind="count.posts"></span>
+            </div>
+         </td>
+         <td class="tr" ng-click="$go.go('/saved')">
+            <div>
+               <i class="icon--fav"></i><br>Избранное
+            </div>
+         </td>
+      </tr>
+      <tr>
+         <td class="bl" ng-click="openMail('oldlentach@gmail.com')">
+            <div>
+               <i class="icon--mail"></i><br>Связь
+               <span ng-if="count.photos" ng-bind="count.photos"></span>
+            </div>
+         </td>
+         <td class="br" ng-click="$go.go('/settings')">
+            <div>
+               <i class="icon--settings"></i><br>Настройки
+            </div>
+         </td>
+      </tr>
+   </table>
+
+</div>

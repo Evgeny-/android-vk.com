@@ -46,7 +46,7 @@
   ]);
 
   App.constant('OPTIONS', {
-    id: -30022666,
+    id: -35632477,
     maxImages: 1,
     postsPerOnce: 8,
     highRes: true,
@@ -55,16 +55,17 @@
   });
 
   App.value('GROUP_OPTIONS', {
-    name: 'ЛЕПRA',
-    image: 'images/lepra.jpg',
-    status: null
+    name: 'Deep space',
+    image: 'images/space.jpg',
+    status: 'Космос в картинках и фактах'
   });
 
   App.constant('CONST', {
     HEADER: 'views/header.html',
     LOADER: 'views/loader.html',
     MENU: 'views/menu.html',
-    PHOTOS_VIEW: 'views/photos-view.html'
+    PHOTOS_VIEW: 'views/photos-view.html',
+    PAGES_VIEW: 'views/pages-view.html'
   });
 
   App.run([
@@ -109,7 +110,10 @@
         }
       };
       $rootScope.openPhoto = PhotosView.open;
-      return $rootScope.BACK_BUTTON = true;
+      $rootScope.BACK_BUTTON = true;
+      return $rootScope.openMail = function(email) {
+        return window.open("mailto:" + email, "_system");
+      };
     }
   ]);
 
@@ -315,6 +319,26 @@
     }
   ]);
 
+  App.controller('PagesViewController', [
+    '$scope', '$rootScope', 'PagesView', 'Page', function($scope, $rootScope, PagesView, Page) {
+      $scope.title = null;
+      $scope.html = null;
+      $scope.closePage = function() {
+        return PagesView.close();
+      };
+      $rootScope.$on('Page:open', function(e, title, url) {
+        $scope.url = url;
+        $scope.title = title;
+        return $scope.html = null;
+      });
+      return $rootScope.$on('Page:close', function() {
+        $scope.url = null;
+        $scope.title = null;
+        return $scope.html = null;
+      });
+    }
+  ]);
+
   App.controller('PhotosViewController', [
     '$scope', '$rootScope', 'PhotosView', function($scope, $rootScope, PhotosView) {
       $scope.images = null;
@@ -356,7 +380,7 @@
   ]);
 
   App.controller('PostsController', [
-    '$scope', 'Posts', 'Loader', 'Store', 'PhotosView', function($scope, Posts, Loader, Store, PhotosView) {
+    '$scope', 'Posts', 'Loader', 'Store', 'PhotosView', 'PagesView', function($scope, Posts, Loader, Store, PhotosView, PagesView) {
       var canLoad, existPost, insertPosts, isSavedPage, liked, loadMorePosts, onScroll, page, win;
       page = 0;
       canLoad = true;
@@ -393,6 +417,9 @@
       };
       $scope.openImage = function(post, id) {
         return PhotosView.openPostPhotos(post, id);
+      };
+      $scope.openPage = function(page) {
+        return PagesView.openPage(page.title, page.url);
       };
       loadMorePosts = function() {
         canLoad = false;
@@ -922,6 +949,65 @@
     })()
   ]);
 
+  App.service('Page', [
+    'VKApi', 'OPTIONS', (function() {
+      var options, parseResult;
+
+      options = {};
+
+      parseResult = function(callback) {
+        return function(res) {
+          return console.log(res);
+        };
+      };
+
+      function _Class(VKApi, OPTIONS, Settings) {
+        this.VKApi = VKApi;
+        options = OPTIONS;
+      }
+
+      _Class.prototype.get = function(page, callback) {
+        return this.VKApi.get('pages.get', {
+          owner_id: options.id,
+          page_id: page,
+          need_html: 1
+        }, parseResult(callback));
+      };
+
+      return _Class;
+
+    })()
+  ]);
+
+  App.service('PagesView', [
+    '$rootScope', (function() {
+      var open;
+
+      open = false;
+
+      function _Class($rootScope) {
+        this.$rootScope = $rootScope;
+      }
+
+      _Class.prototype.openPage = function(title, url) {
+        open = true;
+        return this.$rootScope.$emit('Page:open', title, url);
+      };
+
+      _Class.prototype.close = function() {
+        open = false;
+        return this.$rootScope.$emit('Page:close', null);
+      };
+
+      _Class.prototype.opened = function() {
+        return open;
+      };
+
+      return _Class;
+
+    })()
+  ]);
+
   App.service('PhotosView', [
     '$rootScope', (function() {
       var formatImage, getId, open;
@@ -1024,7 +1110,8 @@
           imagesMore: [],
           gifs: [],
           videos: [],
-          files: []
+          files: [],
+          pages: []
         };
         if ((_ref2 = post.attachments) != null) {
           _ref2.forEach(function(attach) {
@@ -1038,6 +1125,12 @@
                 text: attachPhotoText(photo.text),
                 height: photo.height,
                 width: photo.width
+              });
+            } else if (attach.type === 'page') {
+              return parsedPost.pages.push({
+                id: attach.page.id,
+                title: attach.page.title,
+                url: attach.page.view_url
               });
             } else if (attach.type === 'video') {
               return parsedPost.videos.push({

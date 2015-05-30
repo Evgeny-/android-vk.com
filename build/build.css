@@ -3,12 +3,12 @@ Created by Ilya Pestov - @ilya_pestov
 ========================================================================== */
 body {
   margin: 0;
-  background: rgba(140, 207, 254, 0.29);
+  background: #101115;
   background-size: cover;
   background-position: center;
-  color: #444444;
+  color: #ffffff;
   font-size: 12pt;
-  font-family: 'open sans', arial, sans-serif;
+  font-family: roboto, arial, sans-serif;
 }
 * {
   -webkit-touch-callout: none;
@@ -30,7 +30,7 @@ table {
   clear: both;
 }
 .icon-loader:before {
-  content: '\e81e';
+  content: '\e81f';
 }
 
 /* ==========================================================================
@@ -46,7 +46,7 @@ Created by Ilya Pestov - @ilya_pestov
   width: 31%;
   display: inline-block;
   margin: 1% 0.9%;
-  border-radius: 1pt;
+  border-radius: 0pt;
   overflow: hidden;
   text-align: center;
   background-size: cover;
@@ -81,11 +81,11 @@ Created by Ilya Pestov - @ilya_pestov
 #albums .album {
   margin: 6pt 5pt 3pt;
   padding: 0;
-  background: #ffffff;
-  border: 0px solid #3dcbef;
-  border-radius: 1pt;
+  background: #222225;
+  border: 0px solid #000000;
+  border-radius: 0pt;
   overflow: hidden;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0 1px #1d1f26;
 }
 #albums .album .img {
   float: left;
@@ -124,22 +124,19 @@ Created by Ilya Pestov - @ilya_pestov
 #header {
   width: 100%;
   position: fixed;
-  background: #3dcbef;
+  background: #000000;
   color: #ffffff;
   height: 40pt;
-  border-bottom: 0px solid #3dcbef;
+  border-bottom: 1px solid #1d1f26;
   text-align: center;
   top: 0;
   left: 0;
   right: 0;
   z-index: 4;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 #header .menu {
   width: 40pt;
-}
-#header .menu a {
-  border-left: 1px solid rgba(61, 203, 239, 0.5);
 }
 #header .menu a i:before {
   content: '\e81a';
@@ -150,9 +147,6 @@ Created by Ilya Pestov - @ilya_pestov
 }
 #header .back {
   width: 40pt;
-}
-#header .back a {
-  border-right: 1px solid rgba(61, 203, 239, 0.5);
 }
 #header .back a i:before {
   content: '\e814';
@@ -393,6 +387,10 @@ Created by Ilya Pestov - @ilya_pestov
   content: '\e813';
 }
 /* '' */
+.icon-mail:before {
+  content: '@';
+}
+/* '' */
 .animate-spin {
   -moz-animation: spin 2s infinite linear;
   -o-animation: spin 2s infinite linear;
@@ -475,7 +473,7 @@ Created by Ilya Pestov - @ilya_pestov
 Created by Ilya Pestov - @ilya_pestov
 ========================================================================== */
 body.index {
-  background: #ffffff;
+  background: #101115;
 }
 #main {
   text-align: center;
@@ -484,29 +482,29 @@ body.index {
 #main img {
   margin-top: 7%;
   width: 100pt;
-  border-radius: 1pt;
+  border-radius: 0pt;
 }
 #main h2 {
   text-align: center;
   font-weight: 100;
   margin: 6% 0 0;
-  color: #222222;
+  color: #ffffff;
   font-size: 20pt;
 }
 #main small {
-  color: rgba(34, 34, 34, 0.8);
+  color: rgba(255, 255, 255, 0.8);
   font-size: 10pt;
 }
 #main .controls {
   margin: 12% auto 0;
   overflow: hidden;
-  border-radius: 1pt;
+  border-radius: 0pt;
 }
 #main .controls td {
   text-align: center;
   font-size: 10pt;
   padding: 8pt 14pt;
-  color: #444444;
+  color: #a8b3bf;
 }
 #main .controls td div {
   height: 100%;
@@ -517,19 +515,23 @@ body.index {
   font-size: 24pt;
   line-height: 1.4em;
   display: inline;
-  color: #444444;
+  color: #ffffff;
 }
 #main .controls td i.icon--posts:before {
   content: '\e825';
 }
 #main .controls td i.icon--fav:before {
-  content: '\e82b';
+  content: '\e801';
 }
 #main .controls td i.icon--photos:before {
   content: '\e828';
 }
 #main .controls td i.icon--settings:before {
   content: '\e826';
+}
+#main .controls td i.icon--mail:before {
+  font-family: "Droid Sans", Roboto, sans-serif;
+  content: '@';
 }
 #main .controls td span {
   position: absolute;
@@ -549,16 +551,16 @@ body.index {
   background: rgba(0, 0, 0, 0.05);
 }
 #main .controls .tl {
-  border-bottom: 1px solid #caf1fb;
+  border-bottom: 1px solid #313b43;
 }
 #main .controls .tr {
-  border-left: 1px solid #caf1fb;
+  border-left: 1px solid #313b43;
 }
 #main .controls .br {
-  border-top: 1px solid #caf1fb;
+  border-top: 1px solid #313b43;
 }
 #main .controls .bl {
-  border-right: 1px solid #caf1fb;
+  border-right: 1px solid #313b43;
 }
 
 /* ==========================================================================
@@ -567,10 +569,10 @@ Created by Ilya Pestov - @ilya_pestov
 #loader span {
   height: 30pt;
   display: block;
-  background: #3dcbef;
-  color: #444444;
+  background: #222225;
+  color: #ffffff;
   border-radius: 0pt;
-  border: 1px solid #3dcbef;
+  border: 1px solid #000000;
   text-align: center;
   left: 5pt;
   right: 5pt;
@@ -587,7 +589,7 @@ Created by Ilya Pestov - @ilya_pestov
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(140, 207, 254, 0.29);
+  background: #101115;
 }
 #loader.middle span {
   top: 50%;
@@ -611,10 +613,8 @@ Created by Ilya Pestov - @ilya_pestov
   padding: 0 0 0 10pt;
 }
 #menu .group-info .avatar img {
-  border: 3pt solid #3dcbef;
   height: 30pt;
-  border-radius: 1pt;
-  background: #fff;
+  border-radius: 0pt;
 }
 #menu .group-info .name {
   padding: 0 10pt 0 5pt;
@@ -627,7 +627,7 @@ Created by Ilya Pestov - @ilya_pestov
   padding: 0;
 }
 #menu ul li {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(250, 250, 250, 0.3);
 }
 #menu ul li:first-of-type {
   border-top: 0;
@@ -679,7 +679,7 @@ Created by Ilya Pestov - @ilya_pestov
   width: 100%;
 }
 #menu-wrap {
-  background: #3dcbef;
+  background: url(../images/space-bg2.jpg) #222225;
   background-size: cover;
   position: fixed;
   left: 0;
@@ -1082,12 +1082,19 @@ Created by Ilya Pestov - @ilya_pestov
   background: #111;
   color: #fff;
   height: 40pt;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   z-index: 4;
 }
 #photos-view .header td {
   text-align: center;
   font-size: 14pt;
+}
+#photos-view .header .sub-title {
+  padding: 0 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 248px;
 }
 #photos-view .header .close {
   width: 40pt;
@@ -1105,6 +1112,13 @@ Created by Ilya Pestov - @ilya_pestov
 }
 #photos-view .header-push {
   height: 40pt;
+}
+#photos-view .text-content {
+  margin-top: 5pt;
+}
+#photos-view .text-content .loading {
+  margin-top: 20pt;
+  text-align: center;
 }
 #photos-view .image-container {
   margin-top: 5pt;
@@ -1167,15 +1181,15 @@ Created by Ilya Pestov - @ilya_pestov
 }
 #posts .post {
   font-size: 11pt;
-  margin: 6pt 5pt 9pt;
-  border: 0px solid #3dcbef;
-  background: #ffffff;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
-  border-radius: 1pt;
+  margin: 6pt 0 16pt;
+  border: 0px solid #000000;
+  background: #222225;
+  box-shadow: 0 0 0 1px #1d1f26;
+  border-radius: 0pt;
   overflow: hidden;
 }
 #posts .post a {
-  color: #3dcbef;
+  color: #a3c1cc;
   display: inline-block;
   text-decoration: underline;
 }
@@ -1225,17 +1239,17 @@ Created by Ilya Pestov - @ilya_pestov
 }
 #posts .post .images .show-more {
   font-size: 11pt;
-  color: #3dcbef;
+  color: #a3c1cc;
   padding: 6pt 0;
   margin: 5pt;
-  border: 1px solid #3dcbef;
-  border-radius: 1pt;
+  border: 1px solid #000000;
+  border-radius: 0pt;
 }
 #posts .post .images .show-more:active {
   background: rgba(118, 118, 118, 0.1);
 }
 #posts .post .images .image {
-  border-top: 2px solid #ffffff;
+  border-top: 2px solid #222225;
 }
 #posts .post .images .image:first-of-type {
   border-top: 0;
@@ -1262,7 +1276,7 @@ Created by Ilya Pestov - @ilya_pestov
 }
 #posts .post .images .image span {
   font-size: 9pt;
-  color: rgba(68, 68, 68, 0.5);
+  color: rgba(255, 255, 255, 0.5);
   display: block;
   padding: 2pt;
 }
@@ -1272,7 +1286,7 @@ Created by Ilya Pestov - @ilya_pestov
 #posts .post .files div {
   padding: 4pt 6pt;
   clear: both;
-  color: rgba(68, 68, 68, 0.8);
+  color: rgba(255, 255, 255, 0.8);
 }
 #posts .post .files a {
   max-width: 67%;
@@ -1282,6 +1296,24 @@ Created by Ilya Pestov - @ilya_pestov
   text-overflow: ellipsis;
 }
 #posts .post .files .size {
+  float: right;
+}
+#posts .post .pages {
+  padding: 4pt 0;
+}
+#posts .post .pages i {
+  float: left;
+  padding-right: 5px;
+}
+#posts .post .pages a {
+  display: block;
+}
+#posts .post .pages div {
+  padding: 4pt 6pt;
+  clear: both;
+  color: rgba(255, 255, 255, 0.8);
+}
+#posts .post .pages .size {
   float: right;
 }
 #posts .post .gifs .gif {
@@ -1362,19 +1394,19 @@ Created by Ilya Pestov - @ilya_pestov
   text-align: center;
   line-height: 1em;
   margin-left: .2em;
-  content: '\e809';
-  color: #3dcbef;
+  content: '\e801';
+  color: #a3c1cc;
   padding: 15pt;
   margin: -15pt;
 }
 #posts .post .meta .like i.liked:before,
 #posts .post .meta .like i:active:before {
-  content: '\e80b';
-  color: #3dcbef;
+  content: '\e80a';
+  color: #a3c1cc;
 }
 #posts .post .meta .like span {
   line-height: 10pt;
-  color: #a1e7ef;
+  color: #dddddd;
 }
 
 /* ==========================================================================
@@ -1390,7 +1422,7 @@ Created by Ilya Pestov - @ilya_pestov
   vertical-align: middle;
 }
 #settings .settings-grid tr {
-  border-top: 1px solid rgba(61, 203, 239, 0.7);
+  border-top: 1px solid rgba(0, 0, 0, 0.7);
 }
 #settings .settings-grid tr:first-of-type {
   border-top: 0;
@@ -1407,14 +1439,14 @@ Created by Ilya Pestov - @ilya_pestov
 Created by Ilya Pestov - @ilya_pestov
 ========================================================================== */
 .switch {
-  border: 0px solid #3dcbef;
+  border: 0px solid #000000;
   cursor: pointer;
   display: inline-block;
   text-align: left;
   overflow: hidden;
   min-width: 60pt;
-  border-radius: 1pt;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+  border-radius: 0pt;
+  box-shadow: 0 0 0 1px #1d1f26;
 }
 .switch span {
   cursor: pointer;
@@ -1437,7 +1469,7 @@ Created by Ilya Pestov - @ilya_pestov
   width: 150%;
 }
 .switch .knob {
-  background: #ffffff;
+  background: #222225;
   width: 34%;
   z-index: 100;
 }
@@ -1453,11 +1485,11 @@ Created by Ilya Pestov - @ilya_pestov
 }
 .switch .switch-left {
   color: #ffffff;
-  background: #3dcbef;
+  background: #3d7898;
 }
 .switch .switch-right {
-  color: #333333;
-  background: #e3e3e3;
+  color: #ffffff;
+  background: #47484a;
 }
 .switch-animate {
   transition: left 0.3s;

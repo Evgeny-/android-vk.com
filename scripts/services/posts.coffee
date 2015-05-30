@@ -35,6 +35,7 @@ App.service 'Posts', ['VKApi', 'OPTIONS', 'Counter', 'Settings', class
          gifs: []
          videos: []
          files: []
+         pages: []
 
       post.attachments?.forEach (attach) =>
          if attach.type is 'photo'
@@ -47,11 +48,18 @@ App.service 'Posts', ['VKApi', 'OPTIONS', 'Counter', 'Settings', class
                height: photo.height
                width: photo.width
 
+         else if attach.type is 'page'
+           parsedPost.pages.push
+             id: attach.page.id
+             title: attach.page.title
+             url: attach.page.view_url
+
          else if attach.type is 'video'
-            parsedPost.videos.push
-               id: attach.video.id
-               title: attach.video.title
-               photo: attach.video.photo_320
+           parsedPost.videos.push
+             id: attach.video.id
+             title: attach.video.title
+             photo: attach.video.photo_320
+
 
          else if attach.type is 'doc'
             if attach.doc.ext is 'gif'

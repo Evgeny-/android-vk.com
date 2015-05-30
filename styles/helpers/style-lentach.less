@@ -1,12 +1,12 @@
-@mainColor: #fff;
-@mainBorderColor: #000;
-@mainLightColor: #ddd;
-@mainLinkColor: #A3C1CC;
-@mainLightBackground: #222225;
-@mainLightBackground2: #000;
-@mainDarkBackground: #101115;
+@mainColor: #2D2B30;
+@mainBorderColor: #A7A1B5;
+@mainLightColor: #DEE2E5;
+@mainLinkColor: #432559;
+@mainLightBackground: #fff;
+@mainLightBackground2: #432559;
+@mainDarkBackground: #C9CAD6;
 @mainFontSize: 12pt;
-@mainFontFamily: roboto, arial, sans-serif;
+@mainFontFamily: arial, sans-serif;
 
 @bodyBackground: @mainDarkBackground;
 @bodyColor: @mainColor;
@@ -14,27 +14,27 @@
 @bodyFontFamily: @mainFontFamily;
 
 @headerBackground: @mainLightBackground2;
-@headerColor: @mainColor;
+@headerColor: #fff;
 @headerHeight: 40pt;
-@headerBorder: 1px solid #1d1f26;
+@headerBorder: 0px solid @mainBorderColor;
 @headerFontSize: @mainFontSize + 2pt;
 @headerBoxShadow: 0 1px 1px rgba(0,0,0,.2);
-@headerPhotosView: #0E3F63;
+@headerPhotosView: #432559;
 
 @postFontSize: @mainFontSize - 1pt;
-@postBorder: 0px solid @mainBorderColor;
-@postBoxShadow: 0 0 0 1px #1d1f26;
+@postBorder: 1px solid #ccc;
 @postBorderRadius: 0pt;
+@postBoxShadow: none;
 @postBackground: @mainLightBackground;
 @postLinkColor: @mainLinkColor;
-@postMargin: 6pt 0 16pt;
+@postMargin: 4pt 4pt 6pt;
 
 @menuWidth: 75%;
 @menuOverlay: rgba(45, 52, 60, .7);
-@menuBackground:  url(../images/space-bg2.jpg) @mainLightBackground;
+@menuBackground: @mainDarkBackground;
 @menuTitleFontSize: @mainFontSize + 2pt;
-@menuLineColor: rgba(250,250,250,.3);
-@menuLabelBackground: red;
+@menuLineColor: fade(@mainBorderColor, 70%);
+@menuLabelBackground: #432559;
 @menuLabelColor: #fff;
 @menuColor: @mainColor;
 
@@ -48,14 +48,14 @@
 @likeColorActive: @mainLinkColor;
 
 @switcherColorYes: #fff;
-@switcherColorNo: #fff;
-@switcherBackgroundYes: #3D7898;
-@switcherBackgroundNo: #47484a;
+@switcherColorNo: #333;
+@switcherBackgroundYes: #432559;
+@switcherBackgroundNo: #dee1e7;
 
-@indexBorderColor: #313b43;
+@indexBorderColor: @mainBorderColor;
 @indexBackground: @mainDarkBackground;
-@indexIconColor: @mainColor;
-@indexMenuColor: #a8b3bf;
+@indexIconColor: #2C2930;
+@indexMenuColor: #2C2930;
 @indexColor: @mainColor;
 
 @likeIcon: '\e801';
@@ -67,6 +67,6 @@
 @loaderIcon: '\e81f';
 
 @postsIcon: '\e825';
-@favIcon: '\e801';
+@favIcon: '\e82b';
 @photosIcon: '\e828';
 @settingsIcon: '\e826';

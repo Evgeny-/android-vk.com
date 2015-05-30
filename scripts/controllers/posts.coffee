@@ -1,5 +1,5 @@
-App.controller 'PostsController', ['$scope', 'Posts', 'Loader', 'Store', 'PhotosView',
-   ($scope, Posts, Loader, Store, PhotosView) ->
+App.controller 'PostsController', ['$scope', 'Posts', 'Loader', 'Store', 'PhotosView', 'PagesView',
+   ($scope, Posts, Loader, Store, PhotosView, PagesView) ->
       # vars
       page = 0
       canLoad = true
@@ -32,6 +32,9 @@ App.controller 'PostsController', ['$scope', 'Posts', 'Loader', 'Store', 'Photos
 
       $scope.openImage = (post, id) ->
          PhotosView.openPostPhotos post, id
+
+      $scope.openPage = (page) ->
+        PagesView.openPage page.title, page.url
 
       # functions
       loadMorePosts = ->

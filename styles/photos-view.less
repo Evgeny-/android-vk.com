@@ -27,6 +27,14 @@
          font-size: @headerFontSize;
       }
 
+      .sub-title {
+         padding: 0 8px;
+         overflow: hidden;
+         text-overflow: ellipsis;
+         white-space: nowrap;
+         max-width: 248px;
+      }
+
       .close {
          width: @headerHeight;
          font-size: @mainFontSize + 8pt;
@@ -47,6 +55,15 @@
 
    .header-push {
       height: @headerHeight;
+   }
+
+   .text-content {
+      margin-top: 5pt;
+
+      .loading {
+         margin-top: 20pt;
+         text-align: center;
+      }
    }
 
    .image-container {

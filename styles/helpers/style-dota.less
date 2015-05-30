@@ -1,11 +1,11 @@
-@mainColor: #fff;
-@mainBorderColor: #000;
+@mainColor: #E3D5D1;
+@mainBorderColor: #333335;
 @mainLightColor: #ddd;
-@mainLinkColor: #A3C1CC;
+@mainLinkColor: #A74934;
 @mainLightBackground: #222225;
 @mainLightBackground2: #000;
-@mainDarkBackground: #101115;
-@mainFontSize: 12pt;
+@mainDarkBackground: #13151A;
+@mainFontSize: 13pt;
 @mainFontFamily: roboto, arial, sans-serif;
 
 @bodyBackground: @mainDarkBackground;
@@ -14,27 +14,27 @@
 @bodyFontFamily: @mainFontFamily;
 
 @headerBackground: @mainLightBackground2;
-@headerColor: @mainColor;
+@headerColor: fade(@mainColor, 80%);
 @headerHeight: 40pt;
-@headerBorder: 1px solid #1d1f26;
+@headerBorder: 1px solid @mainBorderColor;
 @headerFontSize: @mainFontSize + 2pt;
-@headerBoxShadow: 0 1px 1px rgba(0,0,0,.2);
+@headerBoxShadow: 0 1px 1px rgba(0,0,0,.4);
 @headerPhotosView: #0E3F63;
 
 @postFontSize: @mainFontSize - 1pt;
-@postBorder: 0px solid @mainBorderColor;
-@postBoxShadow: 0 0 0 1px #1d1f26;
+@postBorder: 1px solid @mainBorderColor;
 @postBorderRadius: 0pt;
+@postBoxShadow: none;
 @postBackground: @mainLightBackground;
 @postLinkColor: @mainLinkColor;
-@postMargin: 6pt 0 16pt;
+@postMargin: 10pt 7pt 10pt;
 
 @menuWidth: 75%;
 @menuOverlay: rgba(45, 52, 60, .7);
-@menuBackground:  url(../images/space-bg2.jpg) @mainLightBackground;
+@menuBackground: @mainDarkBackground;
 @menuTitleFontSize: @mainFontSize + 2pt;
-@menuLineColor: rgba(250,250,250,.3);
-@menuLabelBackground: red;
+@menuLineColor: fade(@mainBorderColor, 70%);
+@menuLabelBackground: #A74934;
 @menuLabelColor: #fff;
 @menuColor: @mainColor;
 
@@ -49,7 +49,7 @@
 
 @switcherColorYes: #fff;
 @switcherColorNo: #fff;
-@switcherBackgroundYes: #3D7898;
+@switcherBackgroundYes: #A74934;
 @switcherBackgroundNo: #47484a;
 
 @indexBorderColor: #313b43;
@@ -58,15 +58,15 @@
 @indexMenuColor: #a8b3bf;
 @indexColor: @mainColor;
 
-@likeIcon: '\e801';
-@likeIconActive: '\e80a';
-@headerIconBack: '\e814';
-@headerIconMenu: '\e81a';
-@menuIconRight: '\e815';
+@likeIcon: '\e809';
+@likeIconActive: '\e80b';
+@headerIconBack: '\e803';
+@headerIconMenu: '\e807';
+@menuIconRight: '\e80e';
 @closeIcon: '\e810';
 @loaderIcon: '\e81f';
 
 @postsIcon: '\e825';
-@favIcon: '\e801';
+@favIcon: '\e82b';
 @photosIcon: '\e828';
 @settingsIcon: '\e826';

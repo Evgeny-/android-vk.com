@@ -1,0 +1,6 @@
+# Created by .gitignore support plugin (hsz.mobi)
+phonegap
+.idea
+.idea/
+build
+node_modules

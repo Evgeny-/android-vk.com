@@ -1,74 +1,82 @@
 
 <div id="posts" class="page" ng-controller="PostsController">
 
-    <div class="message" ng-if="isSavedPage && !posts.length">
-        Вы не сохранили ни одного поста.
-    </div>
+   <div class="message" ng-if="isSavedPage && !posts.length">
+      Вы не сохранили ни одного поста.
+   </div>
 
-    <div ng-repeat="post in posts | orderBy:sortBy:true" class="post">
+   <div ng-repeat="post in posts | orderBy:sortBy:true" class="post">
 
-        <div class="text" ng-show="post.text.length" ng-init="text = (post.text | readMore); show=false">
-            <span ng-bind-html="text[0]"></span>
-            <a ng-show="text[1] && ! show" ng-click="show=true" class="read-more">Читать далее</a>
-            <span ng-show="show" ng-bind-html="text[1]"></span>
-        </div>
+      <div class="text" ng-show="post.text.length" ng-init="text = (post.text | readMore); show=false">
+         <span ng-bind-html="text[0]"></span>
+         <a ng-show="text[1] && ! show" ng-click="show=true" class="read-more">Читать далее</a>
+         <span ng-show="show" ng-bind-html="text[1]"></span>
+      </div>
 
-        <div class="images" ng-if="post.images" ng-init="showMore=false">
-            <div class="image" ng-repeat="image in post.images">
-                <div class="image-wrap">
-                    <img ng-src="{{ image.src }}">
-                    <span ng-click="openImage(post, image.id)" class="icon--zoom"></span>
-                </div>
-                <span ng-bind="image.text" ng-if="image.text"></span>
+      <div class="images" ng-if="post.images" ng-init="showMore=false">
+         <div class="image" ng-repeat="image in post.images">
+            <div class="image-wrap">
+               <img ng-src="{{ image.src }}">
+               <span ng-click="openImage(post, image.id)" class="icon--zoom"></span>
             </div>
+            <span ng-bind="image.text" ng-if="image.text"></span>
+         </div>
 
-            <div ng-show="!showMore && post.imagesMore"
-                 ng-click="showMore=true" class="show-more"
-                 ng-bind="post.imagesMore.length | showMore"></div>
+         <div ng-show="!showMore && post.imagesMore"
+              ng-click="showMore=true" class="show-more"
+              ng-bind="post.imagesMore.length | showMore"></div>
 
-            <div ng-if="showMore" class="image" ng-repeat="image in post.imagesMore">
-                <div class="image-wrap">
-                    <img ng-src="{{ image.src }}">
-                    <span ng-click="openImage(post, image.id)" class="icon--zoom"></span>
-                </div>
-                <span ng-bind="image.text" ng-if="image.text"></span>
+         <div ng-if="showMore" class="image" ng-repeat="image in post.imagesMore">
+            <div class="image-wrap">
+               <img ng-src="{{ image.src }}">
+               <span ng-click="openImage(post, image.id)" class="icon--zoom"></span>
             </div>
-        </div>
+            <span ng-bind="image.text" ng-if="image.text"></span>
+         </div>
+      </div>
 
-        <div class="gifs" ng-if="post.gifs">
-            <div class="gif" ng-repeat="gif in post.gifs" ng-click="gif.photo=gif.src">
-                <img ng-src="{{ gif.photo }}">
-                <div class="play"><i class="icon-play"></i></div>
+      <div class="gifs" ng-if="post.gifs">
+         <div class="gif" ng-repeat="gif in post.gifs" ng-click="gif.photo=gif.src">
+            <img ng-src="{{ gif.photo }}">
+            <div class="play"><i class="icon-play"></i></div>
+         </div>
+      </div>
+
+      <div class="videos" ng-if="post.videos">
+         <div class="video" ng-repeat="video in post.videos">
+            <img ng-src="{{ video.photo }}">
+            <div class="title">
+               <div ng-bind="video.title"></div>
             </div>
-        </div>
+         </div>
+      </div>
 
-        <div class="videos" ng-if="post.videos">
-            <div class="video" ng-repeat="video in post.videos">
-                <img ng-src="{{ video.photo }}">
-                <div class="title">
-                    <div ng-bind="video.title"></div>
-                </div>
-            </div>
-        </div>
+      <div class="files" ng-if="post.files.length">
+         <div ng-repeat="file in post.files">
+            <i class="icon-attach"></i>
+            <!--<span class="file">Файл</span>-->
+            <a ng-click="openLink(file.url)" ng-bind="file.title"></a>
+            <span class="size" ng-bind="file.size | filesize"></span>
+         </div>
+      </div>
 
-        <div class="files" ng-if="post.files.length">
-            <div ng-repeat="file in post.files">
-                <i class="icon-attach"></i>
-                <!--<span class="file">Файл</span>-->
-                <a ng-click="openLink(file.url)" ng-bind="file.title"></a>
-                <span class="size" ng-bind="file.size | filesize"></span>
-            </div>
-        </div>
 
-        <table class="meta">
-            <tr>
-                <td class="time" am-time-ago="post.date"></td>
-                <td class="like">
-                    <i ng-click="likePost(post)" ng-class="{liked: isLiked(post.id)}"></i>
-                </td>
-            </tr>
-        </table>
-    </div>
+      <div class="pages" ng-if="post.pages.length">
+         <div ng-repeat="page in post.pages">
+            <i class="icon-attach"></i>
+            <a ng-click="openLink(page.url)" ng-bind="page.title"></a>
+         </div>
+      </div>
+
+      <table class="meta">
+         <tr>
+            <td class="time" am-time-ago="post.date"></td>
+            <td class="like">
+               <i ng-click="likePost(post)" ng-class="{liked: isLiked(post.id)}"></i>
+            </td>
+         </tr>
+      </table>
+   </div>
 </div>
 
 
